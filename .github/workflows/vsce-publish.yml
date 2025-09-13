@@ -17,24 +17,29 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2️⃣ 设置 Node.js 环境
+      # 2️⃣ 设置 Node.js 环境 + pnpm
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: "22" # 可根据项目需要选择 Node 版本
-          cache: "npm"
+          node-version: "22"
+          cache: "pnpm"
+
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9 # 可改成你需要的 pnpm 版本
 
       # 3️⃣ 安装依赖
       - name: Install dependencies
-        run: npm ci
+        run: pnpm install --frozen-lockfile
 
       # 4️⃣ 安装 vsce 打包工具
       - name: Install VSCE
-        run: npm install -g @vscode/vsce
+        run: pnpm add -g @vscode/vsce
 
       # 5️⃣ 编译 TypeScript（vscode:prepublish）
       - name: Prepublish (compile & bundle)
-        run: npm run vscode:prepublish
+        run: pnpm run vscode:prepublish
 
       # 6️⃣ 打包生成 VSIX 文件
       - name: Package VSIX
@@ -46,5 +51,5 @@ jobs:
         with:
           name: rest-client-vsix
           path: "*.vsix"
-          retention-days: 30 # 可选，保存 artifact 30 天
-          if-no-files-found: error # 如果没有找到 VSIX 文件则报错name: VSIX publish
+          retention-days: 30
+          if-no-files-found: error
