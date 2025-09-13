@@ -1,0 +1,56 @@
+{
+  "publisher": "vscode-toolkit",
+  "name": "vscode-toolkit",
+  "displayName": "vscode-toolkit",
+  "type": "module",
+  "version": "0.0.1",
+  "private": true,
+  "categories": [
+    "Other"
+  ],
+  "main": "./dist/extension.cjs",
+  "engines": {
+    "vscode": "^1.89.0"
+  },
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "workbench.files.action.showActiveFileInExplorer",
+        "title": "target file",
+        "icon": "resources/target.svg"
+      },
+      {
+        "command": "remote-wsl.revealInExplorer",
+        "enablement": "remoteName == 'wsl'",
+        "icon": "resources/folder-target.svg",
+        "title": "windows explorer"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "workbench.files.action.showActiveFileInExplorer",
+          "when": "view == workbench.explorer.fileView && editorIsOpen",
+          "alt": "remote-wsl.revealInExplorer",
+          "group": "navigation"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "tsdown --env.NODE_ENV production",
+    "dev": "tsdown --watch ./src --env.NODE_ENV development",
+    "typecheck": "tsc --noEmit",
+    "vscode:prepublish": "pnpm run build"
+  },
+  "devDependencies": {
+    "@types/node": "22.x",
+    "@types/vscode": "^1.101.0",
+    "reactive-vscode": "^0.3.2",
+    "tsdown": "^0.14.2",
+    "typescript": "^5.9.2"
+  }
+}
