@@ -1,18 +1,15 @@
-name: VSIX publish
+name: VSIX Release
+
 on:
   push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+    tags:
+      - "v*.*.*" # 例如 v1.0.0
+
 permissions:
-  contents: read
-  packages: write
-  attestations: write
-  id-token: write
+  contents: write # 需要写权限来创建 release
+
 jobs:
-  build-vsix:
+  release-vsix:
     runs-on: ubuntu-latest
 
     steps:
@@ -20,11 +17,11 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2️⃣ 安装 pnpm（确保 runner 能找到命令）
+      # 2️⃣ 安装 pnpm
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
-          version: 9 # 或指定你项目里的版本，比如 8
+          version: 9
 
       # 3️⃣ 设置 Node.js 环境，并启用 pnpm 缓存
       - name: Set up Node.js
@@ -37,33 +34,26 @@ jobs:
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # 5️⃣ 安装 vsce 打包工具
+      # 5️⃣ 安装 vsce
       - name: Install VSCE
         run: pnpm add -g @vscode/vsce
 
-      # 6️⃣ 编译 TypeScript（vscode:prepublish）
+      # 6️⃣ 构建 VSIX
       - name: Prepublish (compile & bundle)
         run: pnpm run vscode:prepublish
 
-      # 7️⃣ 打包生成 VSIX 文件
       - name: Package VSIX
         run: vsce package
 
-      # 8️⃣ 上传 VSIX 作为 artifact（v4）
-      - name: Upload VSIX artifact
-        uses: actions/upload-artifact@v4
-        with:
-          name: ${{ github.event.repository.name }}-vsix
-          path: "*.vsix"
-          retention-days: 30
-          if-no-files-found: error
+      # 7️⃣ 创建 Release 并上传 VSIX
       - name: Create Release
         id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
+          files: "*.vsix"
+          tag_name: ${{ github.ref_name }}
+          name: Release ${{ github.ref_name }}
           draft: false
           prerelease: false
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
