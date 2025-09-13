@@ -17,35 +17,36 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2️⃣ 设置 Node.js 环境 + pnpm
+      # 2️⃣ 安装 pnpm（确保 runner 能找到命令）
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9 # 或指定你项目里的版本，比如 8
+
+      # 3️⃣ 设置 Node.js 环境，并启用 pnpm 缓存
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "22"
           cache: "pnpm"
 
-      - name: Set up pnpm
-        uses: pnpm/action-setup@v3
-        with:
-          version: 9 # 可改成你需要的 pnpm 版本
-
-      # 3️⃣ 安装依赖
+      # 4️⃣ 安装依赖
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # 4️⃣ 安装 vsce 打包工具
+      # 5️⃣ 安装 vsce 打包工具
       - name: Install VSCE
         run: pnpm add -g @vscode/vsce
 
-      # 5️⃣ 编译 TypeScript（vscode:prepublish）
+      # 6️⃣ 编译 TypeScript（vscode:prepublish）
       - name: Prepublish (compile & bundle)
         run: pnpm run vscode:prepublish
 
-      # 6️⃣ 打包生成 VSIX 文件
+      # 7️⃣ 打包生成 VSIX 文件
       - name: Package VSIX
         run: vsce package
 
-      # 7️⃣ 上传 VSIX 作为 artifact（v4）
+      # 8️⃣ 上传 VSIX 作为 artifact（v4）
       - name: Upload VSIX artifact
         uses: actions/upload-artifact@v4
         with:
