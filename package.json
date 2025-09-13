@@ -12,6 +12,10 @@
   "engines": {
     "vscode": "^1.89.0"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/alaric8/vscode-toolkit.git"
+  },
   "activationEvents": [
     "onStartupFinished"
   ],
