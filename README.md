@@ -31,4 +31,5 @@ A VS Code extension created with [reactive-vscode](https://kermanx.com/reactive-
 - Automate builds by setting up [Continuous Integration](https://code.visualstudio.com/api/working-with-extensions/continuous-integration).
 
 ## feature 
-1. reveal active file  
+- [x]. reveal active file  
+- [ ]. quick create snippet 
