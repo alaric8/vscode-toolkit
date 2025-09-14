@@ -32,7 +32,6 @@
         {
           "command": "workbench.files.action.showActiveFileInExplorer",
           "when": "view == workbench.explorer.fileView && editorIsOpen",
-          "alt": "remote-wsl.revealInExplorer",
           "group": "navigation"
         }
       ]
