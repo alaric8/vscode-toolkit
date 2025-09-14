@@ -7,46 +7,46 @@ on:
       - "v*.*.*" # 例如 v1.0.0
 
 permissions:
-  contents: write # 需要写权限来创建 release
+  contents: write
 
 jobs:
   release-vsix:
     runs-on: ubuntu-latest
 
     steps:
-      # 1️⃣ 检出代码
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 2️⃣ 安装 pnpm
       - name: Install pnpm
         uses: pnpm/action-setup@v4
         with:
           version: 9
 
-      # 3️⃣ 设置 Node.js 环境，并启用 pnpm 缓存
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: "22"
           cache: "pnpm"
 
-      # 4️⃣ 安装依赖
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
-      # 5️⃣ 安装 vsce
       - name: Install VSCE
         run: pnpm add -g @vscode/vsce
 
-      # 6️⃣ 构建 VSIX
+      # 🔥 自动更新 package.json 里的 version
+      - name: Update package.json version
+        run: |
+          VERSION=${GITHUB_REF_NAME#v}
+          echo "Updating package.json version to $VERSION"
+          pnpm version $VERSION --no-git-tag-version
+
       - name: Prepublish (compile & bundle)
         run: pnpm run vscode:prepublish
 
       - name: Package VSIX
         run: vsce package
 
-      # 7️⃣ 创建 Release 并上传 VSIX
       - name: Create Release
         id: create_release
         uses: softprops/action-gh-release@v1
