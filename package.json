@@ -25,12 +25,6 @@
         "command": "workbench.files.action.showActiveFileInExplorer",
         "title": "target file",
         "icon": "resources/target.svg"
-      },
-      {
-        "command": "remote-wsl.revealInExplorer",
-        "enablement": "remoteName == 'wsl'",
-        "icon": "resources/folder-target.svg",
-        "title": "windows explorer"
       }
     ],
     "menus": {
