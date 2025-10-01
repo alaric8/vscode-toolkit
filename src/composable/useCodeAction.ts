@@ -9,7 +9,7 @@ import type { CodeActionProvider, CodeActionContext, TextDocument, Range, CodeAc
 export function useCodeAction(
   selector: string,
   provideAction: (document: TextDocument, range: Range, context: CodeActionContext) => CodeAction | undefined
-) {
+)  {
   const provider: CodeActionProvider = {
     provideCodeActions(document, range, context) {
       const action = provideAction(document, range, context)

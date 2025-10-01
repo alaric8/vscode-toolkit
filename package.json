@@ -9,6 +9,7 @@
     "Other"
   ],
   "main": "./dist/extension.cjs",
+  "icon": "resource/logo.png",
   "engines": {
     "vscode": "^1.89.0"
   },
@@ -24,7 +25,7 @@
       {
         "command": "vscode-toolkit.showActiveFileInExplorer",
         "title": "target file",
-        "icon": "resources/target.svg"
+        "icon": "resource/target.svg"
       }
     ],
     "menus": {

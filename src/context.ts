@@ -10,5 +10,7 @@ export function registerContext(context: ExtensionContext) {
          }
         return  Boolean(vscode.workspace.getWorkspaceFolder( editor.value.document.uri)); 
     }));
-  
+   return {
+     resourceInWorkspace
+   }
 }
