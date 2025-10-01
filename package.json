@@ -3,7 +3,7 @@
   "displayName": "alaric-toolkit",
   "publisher": "AlaricWeb",
   "type": "module",
-  "version": "2.0.3",
+  "version": "1.0.4",
   "private": true,
   "categories": [
     "Other"
