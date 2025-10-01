@@ -3,8 +3,10 @@ name: VSIX Release
 on:
   workflow_dispatch:
   push:
-    tags:
-      - "v*.*.*" # 例如 v1.0.0
+    branches:
+      - main
+    paths:
+      - 'src/**'
 
 permissions:
   contents: write
@@ -35,12 +37,12 @@ jobs:
         run: pnpm add -g @vscode/vsce
 
       # 🔥 自动更新 package.json 里的 version
-      - name: Update package.json version
-        run: |
-          VERSION=${GITHUB_REF_NAME#v}
-          echo "Updating package.json version to $VERSION"
-          pnpm version $VERSION --no-git-tag-version
+      - name: Bump version
+        run: pnpm version patch
 
+      - name: Push version bump commit and tag
+        run: git push origin HEAD --follow-tags
+          
       - name: Prepublish (compile & bundle)
         run: pnpm run vscode:prepublish
 
