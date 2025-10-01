@@ -22,7 +22,7 @@
   "contributes": {
     "commands": [
       {
-        "command": "workbench.files.action.showActiveFileInExplorer",
+        "command": "vscode-toolkit.showActiveFileInExplorer",
         "title": "target file",
         "icon": "resources/target.svg"
       }
@@ -30,8 +30,8 @@
     "menus": {
       "view/title": [
         {
-          "command": "workbench.files.action.showActiveFileInExplorer",
-          "when": "view == workbench.explorer.fileView && editorIsOpen",
+          "command": "vscode-toolkit.showActiveFileInExplorer",
+          "when": "view == workbench.explorer.fileView && editorIsOpen && resourceIsInWorkspace",
           "group": "navigation"
         }
       ]
