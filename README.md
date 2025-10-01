@@ -33,3 +33,4 @@ A VS Code extension created with [reactive-vscode](https://kermanx.com/reactive-
 ## feature 
 - [x]. reveal active file  
 - [ ]. quick create snippet 
+- [x]. snippet generation fix 

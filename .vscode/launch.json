@@ -6,6 +6,7 @@
       "type": "extensionHost",
       "request": "launch",
       "args": [
+        "--profile=extensionContext",
         "--extensionDevelopmentPath=${workspaceFolder}"
       ],
       "outFiles": [
