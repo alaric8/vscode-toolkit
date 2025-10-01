@@ -1,6 +1,6 @@
 {
-  "name": "vscode-toolkit",
-  "displayName": "vscode-toolkit",
+  "name": "alaric-toolkit",
+  "displayName": "alaric-toolkit",
   "publisher": "AlaricWeb",
   "type": "module",
   "version": "0.0.1",
