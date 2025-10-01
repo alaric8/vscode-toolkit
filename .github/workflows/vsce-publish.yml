@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
   push:
     tags:
-      - "v*.*.*" # 例如 v1.0.0
+      - "v*.*.*"
 
 permissions:
   contents: write
@@ -34,12 +34,14 @@ jobs:
       - name: Install VSCE
         run: pnpm add -g @vscode/vsce
 
-      # 🔥 自动更新 package.json 里的 version
       - name: Update package.json version
         run: |
           VERSION=${GITHUB_REF_NAME#v}
           echo "Updating package.json version to $VERSION"
           pnpm version $VERSION --no-git-tag-version
+
+      - name: Validate extension
+        run: vsce validate
 
       - name: Prepublish (compile & bundle)
         run: pnpm run vscode:prepublish
@@ -47,8 +49,7 @@ jobs:
       - name: Package VSIX
         run: vsce package
 
-      - name: Create Release
-        id: create_release
+      - name: Create GitHub Release
         uses: softprops/action-gh-release@v1
         with:
           files: "*.vsix"
@@ -58,3 +59,9 @@ jobs:
           prerelease: false
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Publish to VS Code Marketplace
+        run: |
+          vsce publish --packagePath *.vsix -p ${{ secrets.VSCE_PAT }}
+        env:
+          VSCE_PAT: ${{ secrets.VSCE_PAT }}

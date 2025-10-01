@@ -34,3 +34,8 @@ A VS Code extension created with [reactive-vscode](https://kermanx.com/reactive-
 - [x]. reveal active file  
 - [ ]. quick create snippet 
 - [x]. snippet generation fix 
+
+
+
+
+885gOfigUMLU2Gdj39DLPBhm0hDCuEJU1NtYCwKXEYFRRE79PkVeJQQJ99BJACAAAAAAAAAAAAASAZDO2KmQ
