@@ -59,7 +59,7 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-      # 🔥 新增：发布到 VS Code 扩展商店
+      # 🔥 修复：发布到 VS Code 扩展商店
       - name: Publish to VS Code Marketplace
         run: |
-          vsce publish --packagePath *.vsix -p ${{ secrets.VSCE_PAT }}
+          vsce publish -p ${{ secrets.VSCE_PAT }}
