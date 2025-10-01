@@ -40,6 +40,7 @@
   "scripts": {
     "build": "tsdown --env.NODE_ENV production",
     "dev": "tsdown --watch ./src --env.NODE_ENV development",
+    "test": "vitest",
     "typecheck": "tsc --noEmit",
     "vscode:prepublish": "pnpm run build"
   },
@@ -48,6 +49,7 @@
     "@types/vscode": "^1.89.0",
     "reactive-vscode": "^0.3.2",
     "tsdown": "^0.14.2",
-    "typescript": "^5.9.2"
+    "typescript": "^5.9.2",
+    "vitest": "^3.2.4"
   }
 }
