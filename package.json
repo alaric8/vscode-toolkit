@@ -49,8 +49,8 @@
     "@types/node": "22.x",
     "@types/vscode": "^1.89.0",
     "reactive-vscode": "^0.3.2",
-    "tsdown": "^0.14.2",
-    "typescript": "^5.9.2",
+    "tsdown": "^0.15.6",
+    "typescript": "^5.9.3",
     "vitest": "^3.2.4"
   }
 }
