@@ -21,6 +21,20 @@ cd vscode-toolkit
 1. 按照文档中的设置说明操作。
 2. 启动 VS Code，体验增强功能。
 
+## 折叠
+```html
+         <!-- 代码 -->
+        <div>
+            fsdfsd
+        </div>
+        <!-- 期望的是  -->
+         <div>...</div>  
+         <!-- 或者 -->
+         <div>...
+        <!-- 但实际是 -->
+        <div>...
+        </div>
+ ```
 ## 🤝 贡献指南
 
 欢迎贡献！请提交 issue 或 pull request。
@@ -28,3 +42,5 @@ cd vscode-toolkit
 ## 📄 许可证
 
 本项目采用 MIT 许可证。
+
+
