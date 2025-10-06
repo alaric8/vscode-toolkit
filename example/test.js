@@ -1,4 +1,5 @@
 
-function ${1:name}(params) {
+function Hello(){
     
+    return 0
 }

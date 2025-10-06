@@ -1,3 +1,5 @@
 {
-    "explorer.fileNesting.enabled": true
+    "explorer.fileNesting.enabled": true,
+    "explorer.confirmDelete": false,
+    "files.autoSave": "afterDelay",
 }
