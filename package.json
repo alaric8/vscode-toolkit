@@ -47,8 +47,8 @@
   },
   "devDependencies": {
     "@types/node": "22.x",
-    "@types/vscode": "^1.89.0",
-    "reactive-vscode": "^0.3.3",
+    "@types/vscode": "^1.105.0",
+    "reactive-vscode": "^0.4.0",
     "tsdown": "^0.15.6",
     "typescript": "^5.9.3",
     "vitest": "^3.2.4"
