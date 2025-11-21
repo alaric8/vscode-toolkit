@@ -13,6 +13,12 @@
   "engines": {
     "vscode": "^1.104.0"
   },
+ "capabilities": {
+    "virtualWorkspaces": true,
+    "untrustedWorkspaces": {
+      "supported": true
+    }
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/alaric8/vscode-toolkit.git"
@@ -21,9 +27,6 @@
     "email": "alaric851@gmail.com",
     "url": "https://github.com/alaric8/vscode-toolkit/issues"
   },
-  "activationEvents": [
-    "onLanguage:html"
-  ],
   "contributes": {
     "commands": [
       {
