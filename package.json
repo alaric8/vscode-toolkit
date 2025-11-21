@@ -3,7 +3,7 @@
   "displayName": "alaric-toolkit",
   "publisher": "AlaricWeb",
   "type": "module",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": true,
   "categories": [
     "Other"
@@ -13,7 +13,7 @@
   "engines": {
     "vscode": "^1.104.0"
   },
- "capabilities": {
+  "capabilities": {
     "virtualWorkspaces": true,
     "untrustedWorkspaces": {
       "supported": true
@@ -58,7 +58,6 @@
         "path": "./language/syntaxes/http.tmLanguage.json"
       }
     ],
-  
     "menus": {
       "view/title": [
         {
