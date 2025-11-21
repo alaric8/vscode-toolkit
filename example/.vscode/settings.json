@@ -1,0 +1,9 @@
+{
+    "editor.folding": true,
+    "editor.defaultFoldingRangeProvider": "AlaricWeb.alaric-toolkit",
+    "editor.foldingMaximumRegions": 5000,
+    "editor.foldingStrategy": "auto",
+    "editor.foldingHighlight": true,
+    "editor.foldingImportsByDefault": true,
+    "editor.unfoldOnClickAfterEndOfLine": true
+}

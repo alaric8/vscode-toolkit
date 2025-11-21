@@ -1,40 +1,46 @@
-# vscode-toolkit
+# 🚀 vscode-toolkit
 
-[![Version](https://img.shields.io/visual-studio-marketplace/v/vscode-toolkit.vscode-toolkit)](https://marketplace.visualstudio.com/items?itemName=vscode-toolkit.vscode-toolkit) [![Installs](https://img.shields.io/visual-studio-marketplace/i/vscode-toolkit.vscode-toolkit)](https://marketplace.visualstudio.com/items?itemName=vscode-toolkit.vscode-toolkit) [![Reactive VSCode](https://img.shields.io/badge/made_with-reactive--vscode-%23007ACC?style=flat&labelColor=%23229863)](https://kermanx.com/reactive-vscode/)
+一个提升 Visual Studio Code 开发体验的工具包。
 
-A VS Code extension created with [reactive-vscode](https://kermanx.com/reactive-vscode/).
+## ✨ 功能特性
 
-## Directory Structure
+- 为 VS Code 提供实用工具和扩展
+- 易于集成和配置
+- 提高开发者生产力
 
-- `package.json` - this is the manifest file in which you declare your extension and command.
-- `src/extension.ts` - this is the main file where you write your extension.
+## 📦 安装方法
 
-## Get started
+```bash
+git clone https://github.com/alaric8/vscode-toolkit.git
+cd vscode-toolkit
+# 按照项目说明进行安装
+```
 
-- Open this repository in VS Code.
-- Run `pnpm install` to install the dependencies.
-- Run `pnpm dev` to compile the extension and watch for changes.  
-- Press `F5` to open a new window with your extension loaded.
-- Run your command from the command palette by pressing (`Ctrl+Shift+P` or `Cmd+Shift+P` on Mac) and typing `Hello World`.
-- Set breakpoints in your code inside `src/extension.ts` to debug your extension.
-- Find output from your extension in the debug console.
+## 🛠️ 使用方法
 
-## Make changes
+1. 按照文档中的设置说明操作。
+2. 启动 VS Code，体验增强功能。
 
-- You can relaunch the extension from the debug toolbar after changing code in `src/extension.ts`.
-- You can also reload (`Ctrl+R` or `Cmd+R` on Mac) the VS Code window with your extension to load your changes.
+## 折叠
+```html
+         <!-- 代码 -->
+        <div>
+            fsdfsd
+        </div>
+        <!-- 期望的是  -->
+         <div>...</div>  
+         <!-- 或者 -->
+         <div>...
+        <!-- 但实际是 -->
+        <div>...
+        </div>
+ ```
+## 🤝 贡献指南
 
-## Go further
+欢迎贡献！请提交 issue 或 pull request。
 
-- [Follow UX guidelines](https://code.visualstudio.com/api/ux-guidelines/overview) to create extensions that seamlessly integrate with VS Code's native interface and patterns.
-- [Publish your extension](https://code.visualstudio.com/api/working-with-extensions/publishing-extension) on the VS Code extension marketplace.
-- Automate builds by setting up [Continuous Integration](https://code.visualstudio.com/api/working-with-extensions/continuous-integration).
+## 📄 许可证
 
-## feature 
-- [x]. reveal active file  
-- [ ]. quick create snippet 
-- [x]. snippet generation fix 
-
-
+本项目采用 MIT 许可证。
 
 

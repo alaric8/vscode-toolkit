@@ -11,15 +11,22 @@
   "main": "./dist/extension.cjs",
   "icon": "resource/logo.png",
   "engines": {
-    "vscode": "^1.89.0"
+    "vscode": "^1.104.0"
+  },
+ "capabilities": {
+    "virtualWorkspaces": true,
+    "untrustedWorkspaces": {
+      "supported": true
+    }
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/alaric8/vscode-toolkit.git"
   },
-  "activationEvents": [
-    "onStartupFinished"
-  ],
+  "bugs": {
+    "email": "alaric851@gmail.com",
+    "url": "https://github.com/alaric8/vscode-toolkit/issues"
+  },
   "contributes": {
     "commands": [
       {
@@ -28,6 +35,30 @@
         "icon": "resource/target.svg"
       }
     ],
+    "languages": [
+      {
+        "id": "http",
+        "aliases": [
+          "HTTP",
+          "Http",
+          "http"
+        ],
+        "extensions": [
+          ".http",
+          ".rest"
+        ],
+        "firstLine": "^(GET|POST|PUT|DELETE|PATCH|HEAD|OPTIONS|CONNECT|TRACE|LOCK|UNLOCK|PROPFIND|PROPPATCH|COPY|MOVE|MKCOL|MKCALENDAR|ACL|SEARCH)\\s+(.*?)HTTP/[0-9\\.]+$",
+        "configuration": "./language/http-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "http",
+        "scopeName": "source.http",
+        "path": "./language/syntaxes/http.tmLanguage.json"
+      }
+    ],
+  
     "menus": {
       "view/title": [
         {

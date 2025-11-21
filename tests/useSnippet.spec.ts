@@ -3,7 +3,6 @@ import {escapeSnippetText} from "@/composable/useSnippet"
 
 test("useSnippet", () => {
   const text  = escapeSnippetText("Hello $world. This is a test. \\ ${test}");
-  console.log(text);
-   
+   console.log(text);
    expect(true).toBe(true);  
 })

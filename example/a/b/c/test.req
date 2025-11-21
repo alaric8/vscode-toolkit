@@ -1,0 +1,49 @@
+# 包含 JSON 对象的请求
+POST https://api.example.com/users HTTP/1.1
+Content-Type: application/json
+Authorization: Bearer token123
+Accept-Encoding: br
+Cache-Control: no-cache
+Connection: 'keep-alive'
+{
+  "user": {
+    "name": "张三",
+    "email": "zhangsan@example.com",
+    "age": 30,
+    "active": true,
+    "tags": ["developer", "premium"],
+    "profile": {
+      "bio": "Software developer",
+      "website": null
+    }
+  }
+}
+
+# 包含 JSON 数组的请求
+PUT https://api.example.com/batch HTTP/1.1
+Content-Type: application/json
+
+[
+  {
+    "id": 1,
+    "action": "create",
+    "data": {"name": "Item 1"}
+  },
+  {
+    "id": 2,
+    "action": "update",
+    "data": {"name": "Item 2"}
+  }
+]
+
+# 错误的请求 - 缺少空白行 ❌
+GET https://api.example.com/data HTTP/1.1
+Accept: application/json
+
+{
+  "query": "search term",
+  "filters": {
+    "category": "books",
+    "price": {"min": 10, "max": 100}
+  }
+}

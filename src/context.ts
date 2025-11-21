@@ -1,6 +1,6 @@
-import { useVscodeContext, useActiveTextEditor, watchEffect, computed } from "reactive-vscode";
+import { useVscodeContext,extensionContext, useActiveTextEditor, watchEffect, computed } from "reactive-vscode";
 import type { ExtensionContext } from "vscode";
-import * as vscode from "vscode";
+import {workspace} from "vscode";
 
 export function registerContext(context: ExtensionContext) {
     const editor = useActiveTextEditor();
@@ -8,8 +8,11 @@ export function registerContext(context: ExtensionContext) {
          if(!editor.value){
             return false;
          }
-        return  Boolean(vscode.workspace.getWorkspaceFolder( editor.value.document.uri)); 
+        return  Boolean(workspace.getWorkspaceFolder( editor.value.document.uri)); 
     }));
+    
+ 
+   
    return {
      resourceInWorkspace
    }
